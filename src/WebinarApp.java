@@ -2,10 +2,14 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class WebinarApp {
+    public static final int FIRST_INDEX = 0;
     public static void main(String[] args) {
+
 
         Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
         int option;
+
+
 
         System.out.print("Size of array: ");
         int size = scanner.nextInt();
@@ -20,6 +24,7 @@ public class WebinarApp {
             System.out.println("0 - quit");
             option = scanner.nextInt();
             scanner.nextLine(); // \n
+            Webinar webinar;
 
             switch (option) {
                 case 1:
@@ -30,17 +35,26 @@ public class WebinarApp {
                     System.out.print("Link: ");
                     String link = scanner.nextLine();
 
-                    Webinar webinar = new Webinar(title,description,link);
+                    webinar = new Webinar(title,description,link);
                     webinarRepository.add(webinar);
 
                     break;
                 case 2:
                     webinarRepository.display();
+
                     break;
                 case 3:
+                    System.out.println("Title: ");
+                    title = scanner.nextLine();
+                    webinar = webinarRepository.search(title, FIRST_INDEX);
+                    if (webinar != null){
+                        webinar.display();
+                    } else {
+                        System.out.println("Not found.");
+                    }
+
                     break;
             }
-
         } while (option != 0);
     }
 }

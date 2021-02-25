@@ -10,8 +10,21 @@ public class Webinar {
     }
 
     public void display() {
-        System.out.print("Title: "+title);
+        System.out.println("Title: "+title);
         System.out.println("Description: "+description);
         System.out.println("Link: "+link);
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+//    @Override
+//    public String toString() {
+//        return "Webinar{" +
+//                "title='" + title + '\'' +
+//                ", description='" + description + '\'' +
+//                ", link='" + link + '\'' +
+//                '}';
+//    }
 }

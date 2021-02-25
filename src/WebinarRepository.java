@@ -11,8 +11,17 @@ public class WebinarRepository {
     }
 
     public void display() {
-        for (int i = 0; i < webinars.length && webinars[i] != null; i++) {
-           webinars[i].display();
+        for (int i = 0; i < webinarIndex; i++) {
+            webinars[i].display();
         }
+    }
+
+    public Webinar search(String title, int p) {
+        for (int i = 0; i < webinarIndex; i++) {
+            if(webinars[i].getTitle().equals(title)){
+                return webinars[i];
+            }
+        }
+        return null;
     }
 }
