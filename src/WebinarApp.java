@@ -32,9 +32,10 @@ public class WebinarApp {
 
                     Webinar webinar = new Webinar(title,description,link);
                     webinarRepository.add(webinar);
-                    
+
                     break;
                 case 2:
+                    webinarRepository.display();
                     break;
                 case 3:
                     break;
